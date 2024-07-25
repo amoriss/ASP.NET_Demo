@@ -22,6 +22,10 @@ public class ProductController : Controller
     public IActionResult ViewProduct(int id)
     {
         var product = repo.GetProduct(id);
+        if(product == null)
+        {
+            return View("ProductNotFound");
+        }
         return View(product);
     }
 
